@@ -1,3 +1,4 @@
+
 """
 Django settings for bau_hostel_management project.
 
@@ -9,7 +10,6 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
 
 from pathlib import Path
 
@@ -71,13 +71,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bau_hostel_management.wsgi.application'
 
 
-# Database
+# Database 
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hostel_management_db',
+        'USER': 'hostel_user',
+        'PASSWORD': 'secret',  # Use the password you set above
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -123,20 +127,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
-
-
-
-
-
-
-
-
-
 # Custom User Model
 AUTH_USER_MODEL = 'hostel_management.CustomUser'
-
-# Media files configuration
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
